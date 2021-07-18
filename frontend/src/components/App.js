@@ -151,7 +151,7 @@ function App() {
     function handleRegister ({ email, password }, onSuccess)  {
         auth.register({ email, password })
             .then((data) => {
-                setUserData({ email: data.data.email });
+                setUserData({ email: data.email });
                 setIsRegSuccess(true);
                 handleInfoTooltipClick();
                 onSuccess();
@@ -188,6 +188,7 @@ function App() {
                     if (res) {
                         setLoggedIn(true);
                         history.push('/');
+                        console.log(res.data)
                         setUserData({ email: res.data.email });
                     }
                 })

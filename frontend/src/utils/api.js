@@ -1,7 +1,7 @@
  class Api {
-    constructor({baseUrl, token}) {
+    constructor({baseUrl, headers}) {
         this._baseUrl = baseUrl;
-        this._token = token;
+        this._headers = headers;
     }
 
      _checkResponse(res) {
@@ -11,18 +11,14 @@
     // Получение постов с сервера
     getInitialCards() {
        return fetch(`${this._baseUrl}/cards`, {
-            headers: {
-                authorization: this._token
-            }
+            headers: this._headers,
         }).then(this._checkResponse);
     }
 
     // Получение информации о пользователе
     getUserInfo() {
         return fetch(`${this._baseUrl}/users/me`, {
-            headers: {
-                authorization: this._token
-            }
+            headers: this._headers,
         }).then(this._checkResponse);
     }
 
@@ -30,10 +26,7 @@
     editUserInfo({name, about}) {
         return fetch(`${this._baseUrl}/users/me`, {
             method : 'PATCH',
-            headers : {
-                authorization : this._token,
-                'Content-type' : 'application/json'
-            },
+            headers: this._headers,
             body : JSON.stringify({
                 name: name,
                 about: about
@@ -45,10 +38,7 @@
     changeAvatar(link) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method : 'PATCH',
-            headers : {
-                authorization : this._token,
-                'Content-type' : 'application/json'
-            },
+            headers: this._headers,
             body : JSON.stringify({
                 avatar : link
             })
@@ -59,10 +49,7 @@
     addCard(data) {
         return fetch(`${this._baseUrl}/cards`, {
             method : 'POST',
-            headers : {
-                authorization : this._token,
-                'Content-type' : 'application/json'
-            },
+            headers: this._headers,
             body : JSON.stringify({
                 name : data.name,
                 link : data.link
@@ -74,9 +61,7 @@
     deleteCard(id) {
         return fetch(`${this._baseUrl}/cards/${id}`, {
             method: 'DELETE',
-            headers: {
-                authorization: this._token
-            }
+            headers: this._headers,
         }).then(this._checkResponse);
     }
 
@@ -84,10 +69,7 @@
     addLike(id) {
         return fetch(`${this._baseUrl}/cards/likes/${id}`, {
             method: 'PUT',
-            headers : {
-                authorization : this._token,
-                'Content-type' : 'application/json'
-            }
+            headers: this._headers,
         }).then(this._checkResponse);
     }
 
@@ -95,9 +77,7 @@
     removeLike(id) {
         return fetch(`${this._baseUrl}/cards/likes/${id}`, {
             method: 'DELETE',
-            headers : {
-                authorization : this._token
-            }
+            headers: this._headers,
         }).then(this._checkResponse);
     }
 
@@ -111,8 +91,10 @@
 }
 
 const api = new Api({
-     baseUrl : 'https://mesto.nomoreparties.co/v1/cohort-22',
-     token : '312a0732-cbcd-4979-9e85-1354911a9934'
+     baseUrl : 'http://yar.mesto.api.nomoredomains.rocks',
+        headers: {
+        'Content-Type': 'application/json'
+    }
  });
 
  export default api;
