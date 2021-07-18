@@ -9,6 +9,7 @@ const auth = require('./middlewares/auth');
 const serverError = require('./middlewares/500err');
 const NotFoundErr = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -23,6 +24,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
+app.use(cors);
 app.use(requestLogger);
 
 app.post('/signin',
