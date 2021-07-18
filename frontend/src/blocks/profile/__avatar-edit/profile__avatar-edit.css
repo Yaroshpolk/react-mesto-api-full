@@ -1,0 +1,9 @@
+.profile__avatar-edit {
+    height: 26px;
+    width: 26px;
+    align-self: center;
+    justify-self: center;
+    position: absolute;
+    opacity: 0;
+    transition: opacity .4s;
+}

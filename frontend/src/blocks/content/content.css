@@ -1,0 +1,24 @@
+.content {
+    max-width: 880px;
+    min-width: 320px;
+    margin: 45px auto 60px auto;
+    color: #fff;
+}
+
+@media screen and (max-width: 930px){
+    .content {
+        margin: 45px 30px 60px 30px;
+    }
+}
+
+@media screen and (max-width: 410px){
+    .content {
+        margin: 45px 19px 60px 19px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .content {
+        margin: 28px 0 36px 0;
+    }
+}

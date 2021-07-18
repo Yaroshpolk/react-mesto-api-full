@@ -1,0 +1,19 @@
+.profile__avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-radius: 50%;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+.profile__avatar-wrapper:hover .profile__avatar {
+    opacity: .3;
+    cursor: pointer;
+}
+
+.profile__avatar-wrapper:hover .profile__avatar-edit {
+    opacity: 1;
+}

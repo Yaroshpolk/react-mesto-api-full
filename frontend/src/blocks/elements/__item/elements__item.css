@@ -1,0 +1,6 @@
+.elements__item {
+    height: 100%;
+    border-radius: 2%;
+    overflow: hidden;
+    position: relative;
+}

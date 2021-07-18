@@ -1,0 +1,11 @@
+.profile__btn {
+    border-radius: 2%;
+    box-sizing: border-box;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity .2s ease;
+}
+
+.profile__btn:hover {
+    opacity: 0.6;
+}
