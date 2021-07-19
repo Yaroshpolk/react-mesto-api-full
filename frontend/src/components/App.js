@@ -188,8 +188,7 @@ function App() {
                     if (res) {
                         setLoggedIn(true);
                         history.push('/');
-                        console.log(res.data)
-                        setUserData({ email: res.data.email });
+                        setUserData({ email: res.email });
                     }
                 })
                 .catch((err) => {
