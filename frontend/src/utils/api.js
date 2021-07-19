@@ -93,7 +93,7 @@
 const api = new Api({
      baseUrl : 'http://yar.mesto.api.nomoredomains.rocks',
         headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     }
  });
 
