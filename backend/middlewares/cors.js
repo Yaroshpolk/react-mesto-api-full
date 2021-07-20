@@ -2,7 +2,7 @@ const allowedCors = [
   'https://yar.mesto.nomoredomains.rocks',
   'http://yar.mesto.nomoredomains.rocks',
 ];
-const ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
+const ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS';
 
 module.exports = ((req, res, next) => {
   const { origin } = req.headers;
