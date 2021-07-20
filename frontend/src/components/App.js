@@ -62,6 +62,23 @@ function App() {
         checkToken();
     }, []);
 
+    React.useEffect(() => {
+        if (loggedIn) {
+            api.getUserInfo()
+                .then((data) => {
+                    setCurrentUser(data);
+                    console.log(data)
+                })
+                .catch((err) => console.log(err));
+
+            api.getInitialCards()
+                .then((data) => {
+                    setCards(data);
+                })
+                .catch(err => console.log(err))
+        }
+    }, [loggedIn]);
+
     function handleInfoTooltipClick() {
         setIsTooltipPopupOpen(true);
     }
@@ -235,7 +252,7 @@ function App() {
                     onCardDelete={handleCardDelete}
                 />
                 <Route path='/crash-test'>
-                    {loggedIn ? <Redirect to='/' /> : <Redirect to='/signin' />}
+
                 </Route>
                 <Route path=''>
                     {loggedIn ? <Redirect to='/' /> : <Redirect to='/signin' />}
