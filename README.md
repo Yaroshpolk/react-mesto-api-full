@@ -4,4 +4,5 @@
 Доступ к сайту осуществляется по ссылке: https://yar.mesto.nomoredomains.rocks
 
 Домен API сайта: https://yar.mesto.nomoredomains.rocks
+
 Публичный IP сайта: 130.193.48.92
