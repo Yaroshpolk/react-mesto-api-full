@@ -9,7 +9,7 @@ const auth = require('./middlewares/auth');
 const serverError = require('./middlewares/500err');
 const NotFoundErr = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const urlValidate = require('./middlewares/urlValidate');
+const { urlValidate } = require('./middlewares/urlValidate');
 const cors = require('./middlewares/cors');
 
 require('dotenv').config();

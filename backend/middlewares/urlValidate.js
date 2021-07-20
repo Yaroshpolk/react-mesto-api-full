@@ -1,9 +1,13 @@
 const validator = require('validator');
 
-module.exports.urlValidate = (value) => {
-  const result = validator.isURL(value);
+const urlValidate = (value) => {
+  const result = validator.isURL(value, { require_protocol: true });
   if (result) {
     return value;
   }
   throw new Error('URL validation err');
+};
+
+module.exports = {
+  urlValidate,
 };

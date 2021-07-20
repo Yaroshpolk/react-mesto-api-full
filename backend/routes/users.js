@@ -1,6 +1,6 @@
 const usersRouter = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
-const urlValidate = require('../middlewares/urlValidate');
+const { urlValidate } = require('../middlewares/urlValidate');
 
 const {
   getUsers, getUserById, updateUser, updateUserAvatar, getUserInfo,
