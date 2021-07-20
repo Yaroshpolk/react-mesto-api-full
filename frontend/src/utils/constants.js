@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://yar.mesto.api.nomoredomains.rocks';
+export const BASE_URL = 'https://yar.mesto.api.nomoredomains.rocks';

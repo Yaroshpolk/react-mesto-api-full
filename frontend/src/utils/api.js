@@ -67,7 +67,7 @@
 
     // Добавление лайка к посту
     addLike(id) {
-        return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+        return fetch(`${this._baseUrl}/cards/${id}/likes`, {
             method: 'PUT',
             headers: this._headers,
         }).then(this._checkResponse);
@@ -75,7 +75,7 @@
 
     // Отмена лайка к посту
     removeLike(id) {
-        return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+        return fetch(`${this._baseUrl}/cards/${id}/likes`, {
             method: 'DELETE',
             headers: this._headers,
         }).then(this._checkResponse);
@@ -91,9 +91,10 @@
 }
 
 const api = new Api({
-     baseUrl : 'http://yar.mesto.api.nomoredomains.rocks',
+     baseUrl : 'https://yar.mesto.api.nomoredomains.rocks',
         headers: {
         'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('jwt')}`
     }
  });
 
