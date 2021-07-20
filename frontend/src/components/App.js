@@ -234,6 +234,9 @@ function App() {
                     onCardLike={handleCardLike}
                     onCardDelete={handleCardDelete}
                 />
+                <Route path='/crash-test'>
+                    {loggedIn ? <Redirect to='/' /> : <Redirect to='/signin' />}
+                </Route>
                 <Route path=''>
                     {loggedIn ? <Redirect to='/' /> : <Redirect to='/signin' />}
                 </Route>
