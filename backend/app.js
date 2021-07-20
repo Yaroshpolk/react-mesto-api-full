@@ -9,6 +9,7 @@ const auth = require('./middlewares/auth');
 const serverError = require('./middlewares/500err');
 const NotFoundErr = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const urlValidate = require('./middlewares/urlValidate');
 const cors = require('./middlewares/cors');
 
 require('dotenv').config();
@@ -51,8 +52,7 @@ app.post('/signup',
         .pattern(new RegExp('^[A-Za-z0-9]{8,30}$')),
       name: Joi.string().min(2).max(30),
       about: Joi.string().min(2).max(30),
-      avatar: Joi.string()
-        .regex(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/),
+      avatar: Joi.string().custom(urlValidate),
     }),
   }),
   createUser);
