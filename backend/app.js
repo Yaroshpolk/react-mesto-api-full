@@ -30,6 +30,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 app.use(cors);
 app.use(requestLogger);
 
+// Вот роут. У меня при обращении к нему в логи pm2 выносится соотв. сообщение 'Сервер сейчас упадёт'
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
